@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- instagram icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+   
+    <!-- instagram -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <title>صفحة إنستجرام</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    
+    <style> 
+      body {
+          display: flex;
+          height: 100vh; /* لملء الشاشة */
+          margin: 0;
+      }
+      .sidebar {
+          width: 250px;
+          background-color: #f9f9f9;
+          height: 100vh; /* ارتفاع الشريط الجانبي */
+          padding: 20px;
+          box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .profile-pic {
+          width: 150px; /* حجم الصورة */
+          height: 150px; /* حجم الصورة */
+          border-radius: 50%; /* لجعل الصورة دائرية */
+          object-fit: cover; /* لضبط الصورة داخل الدائرة */
+          border: 2px solid  #D62976; /* لون الإطار */
+      }
+      .btn-instagram {
+          background: linear-gradient(45deg, #D62976, #962FBF, #4F5BD5); /* تدرج ألوان إنستجرام */
+          color: white; /* لون النص */
+      }
+      .sidebar a {
+        text-decoration: none;
+            color: #000;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            
+      }
+      .sidebar a:hover {
+          background-color: #eaeaea; /* لون الخلفية عند المرور */
+      }
+      .logo {
+            font-size: 2rem; /* حجم الأيقونة */
+            color: #D62976; /* لون أيقونة إنستجرام */
+            text-align: center;
+            margin-bottom: 20px; /* مسافة أسفل الأيقونة */
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto; /* يسمح بالتمرير إذا كان المحتوى كبير */
+        }
+        .profile-divider {
+    border: none; /* إخفاء الحدود الافتراضية */
+    height: 2px; /* ارتفاع الخط */
+    background-color: #4c4949; /* لون الخط */
+    margin: 20px 0; /* مسافة فوق وتحت الخط */
+}
+        .stories-container {
+    display: flex; /* لعرض العناصر في صف واحد */
+    overflow-x: auto; /* يسمح بالتمرير الأفقي إذا كانت القصص أكثر من الشاشة */
+    padding:10px; /* مسافة داخلية */
+   }
+
+       .story {
+    width: 100px; /* عرض كل قصة */
+    height: 100px; /* ارتفاع كل قصة */
+    margin-right: 30px; /* مسافة بين القصص */
+    border-radius: 50%; /* لجعل الشكل دائري */
+    overflow: hidden; /* إخفاء أي جزء زائد من الصورة */
+    border: 2px solid #D62976; /* لون حدود القصة */
+    display: flex; /* لتوسيع الصورة داخل القصة */
+    justify-content: center; /* لتوسيع الصورة أفقياً */
+    align-items: center; /* لتوسيع الصورة عمودياً */
+    transition: transform 0.3s, box-shadow 0.3s; /* تأثيرات انتقالية */
+   }
+
+     .story img {
+    width: 100%; /* جعل الصورة تملأ القصة */
+    height: auto; /* الحفاظ على نسبة الأبعاد */
+    object-fit: cover; /* تأكد من ملاءمة الصورة داخل الدائرة */
+   }
+    .story:hover {
+    transform: scale(1.1); /* تكبير القصة عند المرور */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+   }
+   .container {
+    position: relative; /* جعل الحاوية نسبية */
+}
+
+.section {
+    text-align: center;
+    padding: 10px; /* حشوة */
+    cursor: pointer;
+    position: relative; /* إضافة هذه الخاصية */
+    display: flex; /* استخدام flexbox لتنسيق الأيقونة والنص */
+    align-items: center; /* محاذاة العناصر عمودياً */
+    justify-content: center; /* محاذاة العناصر أفقياً */
+}
+
+.section i {
+    font-size: 1.2rem; /* تقليل حجم الأيقونة */
+    margin-right: 5px; /* مسافة بين الأيقونة والنص */
+}
+
+.line {
+    position: absolute; /* لجعل الخط في موضع نسبي داخل الحاوية */
+    height: 2px; /* ارتفاع الخط */
+    background-color: #343032; /* لون الخط */
+    bottom: 100%; /* اجعل الخط يظهر فوق الأيقونات */
+    transition: left 0.3s ease; /* تأثير الانتقال عند التحريك */
+    left: 0; /* بداية الخط من اليسار */
+    z-index: 1; /* تأكد من أن الخط يظهر فوق الأيقونات */
+    margin-bottom: 25px; /* مساحة بين الخط والأيقونات */
+}
+
+.section.active {
+    color: #1b1919; /* لون النص النشط */
+} .gallery img {
+    width: 100%; /* عرض الصورة لملء العنصر */
+    height: 400px; /* ارتفاع ثابت */
+    object-fit: cover; /* الحفاظ على نسبة الأبعاد */
+    transition: transform 0.3s, box-shadow 0.3s; /* تأثيرات انتقالية */
+}.gallery img:hover {
+    transform: scale(1.05); /* تكبير الصورة عند المرور */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+}
+#taggedGallery {
+    display: none; /* تأكد من أن المعرض غير مرئي عند بدء التحميل */
+    width: 100%; /* اجعل المعرض بعرض كامل */
+    margin: 20px 0; /* إضافة مسافة علوية وسفلية */
+    text-align: center; /* محاذاة النص إلى الوسط */
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* عرض كامل للشريط الجانبي */
+        height: auto; /* ارتفاع تلقائي */
+        position: relative; /* يجعل الشريط الجانبي يتحرك بشكل صحيح مع المحتوى */
+    }
+
+    .content {
+        padding: 10px; /* تقليل الحشوة للشاشات الأصغر */
+    }
+
+    .gallery img {
+        width: 100%; /* عرض الصور كامل في المعرض */
+        height: auto; /* الحفاظ على نسبة الأبعاد */
+    }
+
+    .profile-pic {
+        width: 100px; /* تقليل حجم صورة البروفايل */
+        height: 100px; /* تقليل حجم صورة البروفايل */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px; /* تقليل الحشوة */
+    }
+
+    .story {
+        width: 80px; /* تقليل حجم القصص */
+        height: 80px; /* تقليل حجم القصص */
+    }
+
+    .section {
+        flex-direction: column; /* جعل العناصر تتكدس عمودياً */
+        margin-bottom: 10px; /* مسافة بين العناصر */
+    }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="text-center mb-4">
+        <div class="logo">
+            <i class="fab fa-instagram"></i>
+        </div>
+        <img src="./img/WhatsApp Image 2024-10-07 at 04.06.47_fa4e08d3.jpg" alt="شعار إنستجرام" class="img-fluid mb-3">
+    </div>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-search"></i> Search</a>
+    <a href="#"><i class="fas fa-compass"></i> Explore</a>
+    <a href="#"><i class="fas fa-video"></i> Reels</a>
+    <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+    <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+    <a href="#"><i class="fas fa-plus-circle"></i> Create</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+    <a href="#"><i class="fas fa-comments"></i> Threads</a>
+    <a href="#"><i class="fas fa-ellipsis-h"></i> More</a>
+  </div>
+  <div class="content">
+    <div class="row align-items-center">
+        <div class="col-md-2 text-center">
+            <img src="./img/WhatsApp Image 2024-10-02 at 00.40.14_ecabd6f9.jpg" alt="صورة البروفايل" class="profile-pic mb-3">
+        </div>
+        <div class="col-md-7">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h1 class="me-3">بيتك عندنا</h1>
+                <div class="d-flex align-items-center">
+                  <div class="dropdown">
+                    <button class="btn btn-instagram dropdown-toggle me-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Following
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Unfollow</a></li>
+                        <li><a class="dropdown-item" href="#">Mute</a></li>
+                        <li><a class="dropdown-item" href="#">Report</a></li>
+                    </ul>
+                
+                    <button class="btn btn-instagram me-2">Message</button>
+                    <button class="btn btn-instagram me-2">
+                        <i class="fas fa-user-plus"></i> Add Friend
+                    </button>
+                    <button class="btn btn-instagram me-2" data-bs-toggle="modal" data-bs-target="#blockModal">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                   
+                  </div>
+                </div>
+                
+            </div>
+            
+            <div class="d-flex align-items-center justify-content-end mb-2">
+              <span class="text-muted me-5"><strong>230 posts</strong></span>
+              <span class="text-muted me-5"><strong>19.4K followers</strong></span>
+              <span class="text-muted me-5"><strong>150 Following</strong></span>
+          </div>
+            
+            <p class="text-muted">تسعدنا زيارتكم في بيتك عندنا 
+              <br> معنا كن انت الافضل ستجد كل مايلزم لبيت عصري ومميز
+            <br>01234567898</p>
+            
+        </div>
+    </div>
+    
+<div class="stories-container">
+  <div class="story">
+      <img src="./img/WhatsApp Image 2024-10-01 at 23.40.25_778f1ecd.jpg" alt="Story 1" />
+  </div>
+  <div class="story">
+      <img src="./img/WhatsApp Image 2024-10-01 at 23.40.24_89a2c4e4.jpg" alt="Story 2" />
+  </div>
+  <div class="story">
+      <img src="./img/WhatsApp Image 2024-10-01 at 23.40.24_ebed3891.jpg" alt="Story 3" />
+  </div>
+  <div class="story">
+    <img src="./img/WhatsApp Image 2024-10-01 at 23.40.23_11232625.jpg" alt="Story 4" />
+</div>
+<div class="story">
+    <img src="./img/WhatsApp Image 2024-10-01 at 23.40.22_ba0cd48b.jpg" alt="Story 5" />
+</div>
+<div class="story">
+    <img src="./img/WhatsApp Image 2024-10-01 at 23.40.21_c3f7c800.jpg" alt="Story 6" />
+</div>
+<div class="story">
+  <img src="./img/WhatsApp Image 2024-10-01 at 23.40.20_52bdf173.jpg" alt="Story 7" />
+</div>
+<div class="story">
+  <img src="./img/WhatsApp Image 2024-10-01 at 23.40.20_432ce9ec.jpg" alt="Story 8" />
+</div>
+</div>
+
+    
+<hr class="profile-divider">
+<div class="container mt-4" style="position: relative;"> <!-- اجعل الحاوية في موضع نسبي -->
+  <div class="line" id="indicator"></div> <!-- الخط الذي يتحرك -->
+  <div class="row">
+      <div class="col text-center section" onclick="toggleGallery('postsGallery', this)">
+          <i class="fas fa-th"></i> <!-- أيقونة المنشورات -->
+          <h5>POOSTS</h5>
+      </div>
+      <div class="col text-center section" onclick="toggleGallery('reelsGallery', this)">
+          <i class="fas fa-play-circle"></i> <!-- أيقونة الريلز -->
+          <h5>REELS</h5>
+      </div>
+      <div class="col text-center section" onclick="toggleGallery('taggedGallery', this)">
+          <i class="fas fa-user-tag"></i> <!-- أيقونة المشار إليها -->
+          <h5>TAGGED POOSTS</h5>
+      </div>
+  </div>
+</div>
+  
+  <hr class="my-4">
+  <div id="postsGallery" class="gallery" style="display: none;">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <img src="./img/WhatsApp Image 2024-10-01 at 23.39.04_ad49a4d9.jpg" alt="Post 1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-4">
+            <img src="./img/WhatsApp Image 2024-10-01 at 02.34.45_f069f19a.jpg" alt="Post 2" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-4">
+            <img src="./img/WhatsApp Image 2024-10-01 at 02.34.45_a7d25cdc.jpg" alt="Post 3" class="img-fluid">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.45_7d4234fe.jpg" alt="Post 1" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_4c95afe9.jpg" alt="Post 2" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_91a941f3.jpg" alt="Post 3" class="img-fluid">
+      </div>
+  </div>
+  <br>
+    <div class="row">
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_aa1355e8.jpg" alt="Post 1" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_58083426.jpg" alt="Post 2" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.47_b56913f7.jpg" alt="Post 3" class="img-fluid">
+      </div>
+  </div>
+</div>
+
+  <div id="reelsGallery" class="gallery" style="display: none;">
+    <div class="row">
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.48_860d135c.jpg" alt="Post 1" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.48_c6df390e.jpg" alt="Post 2" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 02.34.49_80fac08d.jpg" alt="Post 3" class="img-fluid">
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 02.34.48_011e8aba.jpg" alt="Post 1" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 02.34.48_ef919066.jpg" alt="Post 2" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.39.04_089ec589.jpg" alt="Post 3" class="img-fluid">
+    </div>
+</div>
+<br>
+  <div class="row">
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_aa1355e8.jpg" alt="Post 1" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 02.34.46_58083426.jpg" alt="Post 2" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 02.34.47_b56913f7.jpg" alt="Post 3" class="img-fluid">
+    </div>
+</div>
+</div>
+
+<div class="container mt-4">
+  <div id="taggedGallery" class="gallery" style="display: none;">
+    <div class="row">
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 23.39.04_71190c7b.jpg" alt="Post 1" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 23.39.05_bfca2916.jpg" alt="Post 2" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-4">
+          <img src="./img/WhatsApp Image 2024-10-01 at 23.39.05_3347adbe.jpg" alt="Post 3" class="img-fluid">
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.39.05_6ceecb02.jpg" alt="Post 1" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.40.20_70596911.jpg" alt="Post 2" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.40.20_52be3d81.jpg" alt="Post 3" class="img-fluid">
+    </div>
+</div>
+<br>
+  <div class="row">
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.40.20_2e5a5af5.jpg" alt="Post 1" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.40.21_018f22ff.jpg" alt="Post 2" class="img-fluid">
+    </div>
+    <div class="col-6 col-md-4">
+        <img src="./img/WhatsApp Image 2024-10-01 at 23.40.21_1e698089.jpg" alt="Post 3" class="img-fluid">
+    </div>
+</div>
+      <!-- أضف محتوى المعرض هنا -->
+  </div>
+</div>
+
+  
+</div>
+</div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="blockModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+     
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <ul class="list-group">
+          <li class="list-group-item text-center"><a href="#">Block</a></li>
+          <li class="list-group-item text-center"><a href="#">Restrict</a></li>
+          <li class="list-group-item text-center"><a href="#">Report</a></li>
+          <li class="list-group-item text-center"><a href="#">Share to...</a></li>
+          <li class="list-group-item text-center"><a href="#">Embed</a></li>
+          <li class="list-group-item text-center"><a href="#">About this account</a></li>
+      </ul>
+    </div>
+   
+  </div>
+</div>
+</div>
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      document.querySelectorAll('.story').forEach(story => {
+          story.addEventListener('click', () => {
+              // تغيير لون الحدود عند الضغط
+              story.style.borderColor = '#FF5733'; // لون جديد
+              // يمكنك إضافة أي تأثير آخر هنا
+              alert('تم الضغط على القصة!');
+          });
+      });
+  </script>
+ <script>
+  function toggleGallery(galleryId, element) {
+      const galleries = document.querySelectorAll('.gallery');
+      
+      // إخفاء جميع المعارض
+      galleries.forEach(gallery => {
+          gallery.style.display = 'none'; // إخفاء المعارض الأخرى
+      });
+
+      // عرض المعرض المحدد
+      const selectedGallery = document.getElementById(galleryId);
+      selectedGallery.style.display = 'block';
+
+      // تحريك الخط
+      const line = document.getElementById('indicator');
+      const sectionWidth = element.offsetWidth;
+      const sectionPosition = element.getBoundingClientRect().left - document.querySelector('.container').getBoundingClientRect().left;
+      line.style.width = sectionWidth + 'px';
+      line.style.left = sectionPosition + 'px';
+      
+      // إزالة التحديد من العناصر الأخرى
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      element.classList.add('active'); // إضافة النمط النشط
+  }
+</script>
+  
+
+  </body>
+</html>

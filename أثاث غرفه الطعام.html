@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيتك عندنا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMC4C8K7M/l5V7mC4d4sml4Y8cR0BUsv8W1nY1+cY9V1y1z5J5t4N5f8C0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="hhhhh.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery-item {
+  position: relative;
+  width: 23%; /* عرض كل عنصر ليكون 4 عناصر في صف واحد */
+  perspective: 1000px;
+  margin: 10px;
+  box-sizing: border-box; /* لضمان أن الحواف محسوبة ضمن العرض */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  backface-visibility: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: opacity 0.5s ease;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-container:hover {
+  transform: rotateY(180deg);
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <header>
+        <div class="navbar">
+            <img src="بيتك.jpg" alt="Logo" class="logo">
+            <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+            <ul>
+                <li><a href="ff.html">الرئسية</a></li>
+            <li><a href="اثاث مداخل.html">أثاث مداخل</a></li>
+            <li><a href="اثاث غرفة معيشه.html">اثاث غرفة المعيشة</a></li>
+            <li><a href="أثاث غرفه الطعام.html">اثاث غرفة الطعام</a></li>
+          <li><a href="اثاث غرفة النوم.html">اثاث  غرفة النوم</a></li>
+
+            </ul>
+        </div>
+    
+        <div id="sidebar" class="sidebar">
+            
+            <ul>
+                <li><a href="ff.html">الرئسية</a></li>
+                <li><a href="اثاث مداخل.html">أثاث مداخل</a></li>
+                <li><a href="اثاث غرفة معيشه.html">أثاث غرفة المعيشة</a></li>
+                <li><a href="أثاث غرفه الطعام.html">أثاث غرفة الطعام</a></li>
+                <li><a href="اثاث غرفة النوم.html">أثاث غرفه النوم</a></li>
+            </ul>
+            <div class="text-center">
+                <a href="index.html" target="_blank" class="mx-2">
+                    <i class="fab fa-facebook" style="font-size: 24px; color: #3b5998;"></i>
+                </a>
+                <a href="instagram-main\index.html" target="_blank" class="mx-2">
+                    <i class="fab fa-instagram" style="font-size: 24px; color: #e4405f;"></i>
+                </a>
+            </div>
+        </div>
+    
+        
+        <script src="script.js"></script>
+           <script>
+       function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+          }
+        </script>
+    </header>
+    <br><br><br>
+<div class="gallery">
+    <div class="gallery-item">
+        <a href="مج1.html"> 
+            <div class="image-container">
+        <img src="صور موقع الاثاث\1_273fe1ca-6ca0-4f93-8ca9-453dc077d39d.webp" alt="صورة 1">
+        <div class="overlay">كرسى اسود و خشبى من الروطان الفاخر </div></div></a>
+        
+    </div>
+    <div class="gallery-item">
+        <a href="مج2.html">
+            <div class="image-container">
+        <img src=" صور موقع الاثاث\Main-01_16ea29eb-46f7-4f79-bef3-093746b11b07.webp" alt="صورة 2">
+        <div class="overlay"> كرسى من الخشب و مقعد جلد</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج3.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث\Main-03_3f33305e-77a2-4dd1-94f1-465df233fe15.webp" alt="صورة 3">
+        <div class="overlay"> كراسي بار متعددة الالوان</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج4.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث\Untitled-1_c82ccf7d-fd53-4fad-8426-9ac7957a1add.webp" alt="صورة 4">
+        <div class="overlay">كرسى بار بتصميم مميز</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج5.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة1.webp" alt="صورة 5">
+        <div class="overlay">طاولة طعام 6 كراسى انيقة</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج6.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة 2.webp" alt="صورة 6">
+        <div class="overlay">طاولة مستديرة بسطح رخامى مع 4 كراسي تصميم عصرى</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج7.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة3.webp" alt="صورة 7">
+        <div class="overlay">طاولة طعام مع 4 كراسى بمقعد جلد من الخشب </div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج8.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة4.webp" alt="صورة 8">
+        <div class="overlay">طقم سفرة طعام رخاميه و 6 كراسي</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج9.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة طعام2.webp" alt="صورة 9">
+        <div class="overlay">  طاولة مستديرة بمقاسات متعددة</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج10.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة طعام 1.webp" alt="صورة 10">
+        <div class="overlay">طقم طاولات من خامات عاليةالجودة الفاخرة </div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج11.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة طعام3.webp" alt="صورة 11">
+        <div class="overlay">طاولة طعام فاخرة</div></div></a>
+    </div>
+    <div class="gallery-item">
+        <a href="مج12.html">
+            <div class="image-container">
+        <img src="صور موقع الاثاث/طاولة طعام 4.webp" alt="صورة 12">
+        <div class="overlay">  طاولة طعام مستديرة بقرص دوار</div></div></a>
+    </div>
+</div>
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="ff.html" class="nav-link px-2 text-black">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link px-2 text-black">About</a></li>
+    </ul>
+    
+    <div class="text-center">
+        <a href="index.html" target="_blank" class="mx-2">
+            <i class="fab fa-facebook" style="font-size: 24px; color: #3b5998;"></i>
+        </a>
+        <a href="instagram-main\index.html" target="_blank" class="mx-2">
+            <i class="fab fa-instagram" style="font-size: 24px; color: #e4405f;"></i>
+        </a>
+    </div>
+    <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+  </footer>
+</body>
+</html>
+

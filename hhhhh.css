@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #bd4504;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    
+    height: 80px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin-left: auto;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.navbar ul li a:hover {
+    background-color: #b61d1d;
+    border-radius: 4px;
+}
+
+.toggle-btn {
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px;/* Below the navbar */
+    left: -220px; /* Hide initially */
+    width: 200px;
+    height: 100%;
+    background-color: #df8468;
+    color: white;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 999; /* On top of the content but below navbar */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar.active {
+    left: 0; /* Show sidebar */
+}
+
+.content {
+    margin-left: 220px; /* Adjust margin when sidebar is visible */
+    padding: 20px;
+    padding-top: 80px; /* Height of the navbar */
+}
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+/* المحتوى الرئيسي */
+.main-content {
+    transition: margin-right 0.5s;
+    padding: 16px;
+}
+.container {
+    position: relative;
+}
+
+
+
+  .t{
+    padding-top: 200px;
+  }
+.e{
+    margin-right: 1700px;
+    margin-top: -80px;
+    width: 7%;
+    
+}
+.ee{
+    font-weight: 800;
+    font-size: 30px;
+}
+.image {
+    width: 80vw; /* يمكنك تعديل الحجم حسب الحاجة */
+    height: auto;
+    border-radius: 10px; /* لجعل حواف الصورة مدورة */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* ظل للصورة */
+}
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFD700; /* لون النص (ذهبي) */
+    font-size: 2.5em; /* يمكنك تعديل حجم الخط */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل للنص */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+   
+    font-family: 'Arial', sans-serif;
+}
+
+MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+.v{
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+
+
+       
+        .imh{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 23%;
+        }
+        .y{
+            width: 100%;
+            margin: 10px;
+           
+        }
+        .y:hover{
+            box-shadow: 0 5px 10px rgba(71, 71, 71, .4);
+        }
+        .yy{
+      margin-right: 670px;
+     
+      color: peru;
+        }
+        .uu{
+            clip-path: polygon(0 0, 100% 68px, 100% 100%, 0 100%);
+    padding: 6em 0 4em;
+    margin-top: 4em;
+    position: relative;
+    background-image: linear-gradient(359deg, #000000, #000000), url(patterns.svg);
+    background-blend-mode: saturation;
+        }
+        .cc{
+            font-size: 30px;
+    font-weight: bold;
+    color: #FFBD00;
+    margin-bottom: 35px;
+        }
+        .c{
+            font-size: 30px;
+    font-weight: bold;
+    color: #FFBD00;
+    margin-bottom: 35px;
+        }
+        ./* جعل الصور متجاوبة */
+    .xxx {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        transition: transform 0.3s ease;
+    }
+
+    /* ترتيب العناصر بشكل متجاوب */
+    .x {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .xx {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .xx > div {
+        flex: 1 1 calc(25% - 10px);
+        box-sizing: border-box;
+        margin: 5px;
+    }
+
+    /* تأثير hover على الصور */
+    .xxx:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+     /* لضمان توافق العناصر مع جميع الأجهزة */
+     @media (max-width: 768px) {
+        .xx > div {
+            flex: 1 1 calc(50% - 10px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .xx > div {
+            flex: 1 1 100%;
+        }
+    }
+    /* جعل النص باللون الأصفر */
+    .cc, .xxxx {
+        color: yellow;
+    }
+
+    
+    
+
+
+.w{
+    width: 100%;
+    height: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.ww{
+    width: 75%;
+    height: 75%;
+}
+.ww:hover{
+    transform: scale(1.03);
+    box-shadow: 0 5px 10px rgba(71, 71, 71, .4);
+
+}
+.qq{
+    width: 150px;
+   
+}
+.q{
+    font-size: 25px;
+    font-weight: 700;
+    color: brown;
+}
+
+.container {
+    text-align: center;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    color: #6b4f35;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #6b4f35;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.i {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #6b4f35;
+    color: white;
+    width: 100%;
+}
+
+.i:hover {
+    opacity: 0.9;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #6b4f35;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.success-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #6b4f35;
+    margin-bottom: 20px;
+}
+
+.checkmark {
+    font-size: 80px;
+    color: green;
+}
+
+
+.h1{
+    background-color:#640c0c;
+    background-attachment: fixed;
+    color: white;
+   
+   
+}
+.d{
+   
+    font-size: 70px;
+    font-weight: 1000;
+    margin-right: 30px;
+   
+   
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* توزيع الصور في شبكة */
+    gap: 20px;
+  }
+  
+  .card {
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 300px; /* يمكنك تخصيص الطول */
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 24%;
+    height: 24%;
+    backface-visibility: hidden;
+  }
+  
+  .card-front img {
+    width: 24%;
+  }
+  
+  .card-back {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+  }
+  
+  .flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  .dos{
+    display: flex;
+  }
+  .oo{
+
+    display: flex;
+    justify-content: center; /* لتوسيط الأيقونات أفقياً */
+    align-items: center;     /* لتوسيط الأيقونات عمودياً */
+    height: 100px;           /* لتوسيط الأيقونات على كامل الصفحة */
+  }
+  .ooo{
+    font-size: 50px;         /* لتكبير الأيقونات */
+    margin: 0 20px;          /* إضافة مساحة بين الأيقونات */
+    color: #3b5998; /* لون أزرق الفيسبوك */        
+  }
+  .oooo{
+    font-size: 50px;         /* لتكبير الأيقونات */
+    margin: 0 20px;          /* إضافة مساحة بين الأيقونات */
+    background: radial-gradient(circle at 30% 30%, #fdf497, #fdf497, #fd5949, #d6249f, #285AEB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* لون متدرج يشبه انستجرام */
+  }
+  
