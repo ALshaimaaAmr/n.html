@@ -98,69 +98,7 @@ body {
     padding-top: 80px; /* Height of the navbar */
 }
 
-.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
-    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
-        .MultiCarousel .MultiCarousel-inner .item { float: left;}
-        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
-    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
-    .MultiCarousel .leftLst { left:0; }
-    .MultiCarousel .rightLst { right:0; }
-    
-        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
-/* المحتوى الرئيسي */
-.main-content {
-    transition: margin-right 0.5s;
-    padding: 16px;
-}
-.container {
-    position: relative;
-}
 
-
-
-  .t{
-    padding-top: 200px;
-  }
-.e{
-    margin-right: 1700px;
-    margin-top: -80px;
-    width: 7%;
-    
-}
-.ee{
-    font-weight: 800;
-    font-size: 30px;
-}
-.image {
-    width: 80vw; /* يمكنك تعديل الحجم حسب الحاجة */
-    height: auto;
-    border-radius: 10px; /* لجعل حواف الصورة مدورة */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* ظل للصورة */
-}
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #FFD700; /* لون النص (ذهبي) */
-    font-size: 2.5em; /* يمكنك تعديل حجم الخط */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل للنص */
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-   
-    font-family: 'Arial', sans-serif;
-}
-
-MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
-    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
-        .MultiCarousel .MultiCarousel-inner .item { float: left;}
-        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
-    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
-    .MultiCarousel .leftLst { left:0; }
-    .MultiCarousel .rightLst { right:0; }
-    
-        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
 
 .v{
     font-size: 24px;
@@ -278,10 +216,8 @@ MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; posit
     box-shadow: 0 5px 10px rgba(71, 71, 71, .4);
 
 }
-.qq{
-    width: 150px;
-   
-}
+
+
 .q{
     font-size: 25px;
     font-weight: 700;
